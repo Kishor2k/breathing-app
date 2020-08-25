@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Kreon:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 10, 0, 0.9), rgba(0, 10, 10, 0.7)),
+    url(./images/water.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 40px;
+  color: whitesmoke;
+  text-shadow: 3px 8px 10px black;
+}
+#text {
+  text-transform: uppercase;
+  font-size: 20px;
+  color: whitesmoke;
+}
+.container {
+  flex-shrink: 2;
+  margin-bottom: 50px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform: scale(1);
+}
+.gradient-circle {
+  background: lightgreen;
+  height: 320px;
+  width: 320px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  z-index: -2;
+  border-radius: 50%;
+  animation: change 7.5s linear infinite;
+}
+.circle {
+  background: darkslategrey;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 50%;
+}
+.pointer-container {
+  position: absolute;
+  top: -40px;
+  left: 140px;
+  width: 20px;
+  height: 190px;
+  transform-origin: bottom center;
+  animation: rotate 7.5s linear forwards infinite;
+}
+.pointer {
+  background: white;
+  box-shadow: 0px 0px 3px 2px lawngreen;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  display: block;
+}
+
+.container.grow {
+  animation: grow 3s linear forwards;
+}
+.container.shrink {
+  animation: shrink 3s linear forwards;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+@keyframes shrink {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes change {
+  0% {
+    background: rgb(124, 207, 40);
+  }
+  38% {
+    background: rgb(124, 207, 40);
+  }
+  40% {
+    background: rgb(192, 52, 80);
+  }
+  58% {
+    background: rgb(192, 52, 80);
+  }
+  60% {
+    background: lightcyan;
+  }
+  98% {
+    background: lightcyan;
+  }
+  100% {
+    background: lawngreen;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    width: 200px;
+    height: 200px;
+  }
+  .gradient-circle {
+    width: 220px;
+    height: 220px;
+  }
+  .pointer-container {
+    top: -40px;
+    left: 90px;
+    width: 20px;
+    height: 140px;
+  }
+  .pointer {
+    height: 20px;
+    width: 20px;
+  }
+}
